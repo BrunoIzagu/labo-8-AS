@@ -1,0 +1,19 @@
+name: Code tests
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Python Linter (pylint)
+      uses: advanced-security/python-lint-code-scanning-action@v1
+      with:
+        linter: pylint
